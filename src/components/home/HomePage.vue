@@ -1,9 +1,4 @@
 <template>
-<<<<<<< HEAD
-    <div>
-
-    </div>
-=======
   <div>
       
     <!-- bottom 4 cards -->
@@ -37,7 +32,6 @@
       </v-row>
     </v-container>
   </div>
->>>>>>> cb22281b770528676c8d5ea221b61e60808349e1
 </template>
 
 <script>
