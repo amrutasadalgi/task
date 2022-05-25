@@ -1,6 +1,10 @@
 <template>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 579e634c3e51567fa988b04a8c1ab8fdefe6d71c
   <div>
-      
+      <SubHome />
     <!-- bottom 4 cards -->
     <v-container>
       <v-row dense>
@@ -32,42 +36,48 @@
       </v-row>
     </v-container>
   </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 579e634c3e51567fa988b04a8c1ab8fdefe6d71c
 </template>
 
 <script>
+import SubHome from "./SubHome.vue";
 export default {
-  data() {
-    return {
-      datas: {},
-      items: [
-        {
-          color: "#1F7087",
-          src: "https://bit.ly/3yUuBHh",
-          title: "Education",
-          artist: "Education of People",
-        },
-        {
-          color: "#1F7087",
-          src: "https://shiftworkplace.com/wp-content/uploads/2017/06/Experience-photo.jpg",
-          title: "Experience",
-          artist: "Experience ",
-        },
-        {
-          color: "#1F7087",
-          src: "https://cdn3.iconfinder.com/data/icons/flat-rounded-7/50/617-512.png",
-          title: "Personal Info",
-          artist: "Personal info of People",
-        },
-        {
-          color: "#1F7087",
-          src: "https://ps-attachments.s3.amazonaws.com/cc810a17-c903-405a-b914-be7622637dc2/ixTAUT5DNBKQzZaBAixIkA.jpg",
-          title: "Technologies",
-          artist: "Technologies used",
-        },
-      ],
-      show: false,
-    };
-  },
+    data() {
+        return {
+            datas: {},
+            items: [
+                {
+                    color: "#1F7087",
+                    src: "https://bit.ly/3yUuBHh",
+                    title: "Education",
+                    artist: "Education of People",
+                },
+                {
+                    color: "#1F7087",
+                    src: "https://shiftworkplace.com/wp-content/uploads/2017/06/Experience-photo.jpg",
+                    title: "Experience",
+                    artist: "Experience ",
+                },
+                {
+                    color: "#1F7087",
+                    src: "https://cdn3.iconfinder.com/data/icons/flat-rounded-7/50/617-512.png",
+                    title: "Personal Info",
+                    artist: "Personal info of People",
+                },
+                {
+                    color: "#1F7087",
+                    src: "https://ps-attachments.s3.amazonaws.com/cc810a17-c903-405a-b914-be7622637dc2/ixTAUT5DNBKQzZaBAixIkA.jpg",
+                    title: "Technologies",
+                    artist: "Technologies used",
+                },
+            ],
+            show: false,
+        };
+    },
+    components: { SubHome }
 };
 </script>
 
