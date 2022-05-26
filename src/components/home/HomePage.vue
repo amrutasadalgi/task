@@ -1,37 +1,9 @@
 <template>
-<<<<<<< HEAD
-  <div>    
-    <!-- bottom 4 cards -->
-    <v-container>
-      <v-row dense>
-        <v-col v-for="(item, i) in items" :key="i" cols="12">
-          <v-card :color="item.color" dark>
-            <div class="d-flex flex-no-wrap justify-space-between">
-              <div>
-                <v-card-title
-                  class="text-h5"
-                  v-text="item.title"
-                ></v-card-title>
-                <v-card-subtitle v-text="item.artist"></v-card-subtitle>
-                <v-card-actions>
-                  <v-btn class="ml-2 mt-5" outlined rounded small>
-                    Update
-                  </v-btn>
-                </v-card-actions>
-              </div>
-              <v-avatar class="ma-3" size="125" tile>
-                <v-img :src="item.src" class="rounded-circle"></v-img>
-              </v-avatar>
-            </div>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-  </div>
-=======
+
+
+
 
   <div>
-    <SubHome />
     <!-- bottom 4 cards -->
     <v-container>
       <v-row dense>
@@ -135,14 +107,14 @@
     </v-container>
   </div>
 
->>>>>>> 033d61d4ae1f6df95513a61bc7add35674cf68b3
+
 </template>
 <script>
-<<<<<<< HEAD
-=======
+
+
 import SubHome from "./SubHome.vue";
 
->>>>>>> 033d61d4ae1f6df95513a61bc7add35674cf68b3
+
 export default {
   data() {
     return {
@@ -181,12 +153,11 @@ export default {
     changePath: function () {
       this.path = window.location.pathname;
     },
-<<<<<<< HEAD
 
-=======
+
   },
   components: { SubHome },
->>>>>>> 033d61d4ae1f6df95513a61bc7add35674cf68b3
+
 };
 </script>
 
