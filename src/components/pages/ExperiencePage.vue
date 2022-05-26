@@ -77,10 +77,10 @@ export default {
   mixins: [validationMixin],
   validations: {
     name: { required, maxLength: maxLength(30) },
-    degree: { required, maxLength: maxLength(30) },
-    institution: { required, maxLength: maxLength(30) },
-    passout: { required, maxLength: maxLength(30) },
-    grade: { required, maxLength: maxLength(30) },
+    company: { required, maxLength: maxLength(30) },
+    designation: { required, maxLength: maxLength(30) },
+    skills: { required, maxLength: maxLength(30) },
+    yop: { required, maxLength: maxLength(30) },
 
     checkbox: {
       checked(val) {
@@ -91,10 +91,9 @@ export default {
   data() {
     return {
       name: "",
-      degree: "",
-      institution: "",
-      passout: "",
-      grade: "",
+      company: "",
+      designation: "",
+      yop: "",
       skills: null,
       items: ["Java", "Python", "javascript", "HTML","CSS","selenium","excel","reactJS","VueJS"],
       checkbox: false,
@@ -109,12 +108,12 @@ export default {
       return errors;
     },
 
-    nameErrors() {
+    companyErrors() {
       const errors = [];
-      if (!this.$v.name.$dirty) return errors;
-      !this.$v.name.maxLength &&
-        errors.push("Name must be at most 30 characters long");
-      !this.$v.name.required && errors.push("Name is required.");
+      if (!this.$v.company.$dirty) return errors;
+      !this.$v.company.maxLength &&
+        errors.push("company must be at most 30 characters long");
+      !this.$v.company.required && errors.push("company is required.");
       return errors;
     },
     degreeErrors() {
