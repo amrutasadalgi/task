@@ -3,9 +3,7 @@
     <div>
       <v-card>
         <v-app-bar absolute="true" color="transparent" elevation="0">
-          <v-app-bar-title class="white--text display-1 font-weight-bold ml-12"
-            >EMP Zone ...</v-app-bar-title
-          >
+         <v-img max-height="100" max-width="100" class="rounded-full" src="https://img.freepik.com/free-vector/family-care-foundation-logo-vector_23987-272.jpg?size=338&ext=jpg"></v-img>
           <v-spacer></v-spacer>
           <v-dialog v-model="dialog">
             <template v-slot:activator="{ on, attrs }">
@@ -14,7 +12,7 @@
                 v-bind="attrs"
                 v-on="on"
                 color="transparent"
-                class="white--text font-weight-bold title"
+                class="white--text font-weight-bold"
               >
                 Sign-up
               </v-btn>
@@ -110,7 +108,7 @@
                 color="transparent"
                 v-bind="attrs"
                 v-on="on"
-                class="white--text font-weight-bold title"
+                class="white--text font-weight-bold "
               >
                 Login
               </v-btn>
@@ -175,7 +173,7 @@
               <v-btn
                 elevation="0"
                 color="transparent"
-                class="white--text font-weight-bold title display-1"
+                class="white--text font-weight-bold "
                 v-bind="attrs"
                 v-on="on"
               >

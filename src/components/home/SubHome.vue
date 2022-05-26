@@ -8,13 +8,13 @@
       <h1 class="font-weight-bold display-3 lime--text" color="transperent">
         Employee Database Software
       </h1>
-      <p class="mx-16 px-16 py-5 text-center lime--text">
+      <p class="mx-16 px-16 py-5 text-center white--text">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus
         veritatis accusamus temporibus neque dolores consectetur corporis illum
         suscipit ut, tempore dolore cupiditate aliquam quod nostrum nesciunt
         itaque a perspiciatis impedit!
       </p>
-      <v-btn rounded height="60" width="300" large color="black" class="text-weight-bold lime--text">More Info</v-btn>
+      <v-btn rounded height="60" width="300" color="transperent" class="text-weight-bold white--text" outlined>More Info</v-btn>
     </v-container>
   </div>
 </template>

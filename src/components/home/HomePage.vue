@@ -1,7 +1,9 @@
 <template>
 
+
+
+
   <div>
-    <SubHome />
     <!-- bottom 4 cards -->
     <v-container>
       <v-row dense>
@@ -105,9 +107,13 @@
     </v-container>
   </div>
 
+
 </template>
 <script>
+
+
 import SubHome from "./SubHome.vue";
+
 
 export default {
   data() {
@@ -147,8 +153,11 @@ export default {
     changePath: function () {
       this.path = window.location.pathname;
     },
+
+
   },
   components: { SubHome },
+
 };
 </script>
 
