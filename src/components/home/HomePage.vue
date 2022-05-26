@@ -1,10 +1,5 @@
 <template>
-<<<<<<< HEAD
-=======
-
->>>>>>> 579e634c3e51567fa988b04a8c1ab8fdefe6d71c
-  <div>
-      <SubHome />
+  <div>    
     <!-- bottom 4 cards -->
     <v-container>
       <v-row dense>
@@ -16,17 +11,13 @@
                   class="text-h5"
                   v-text="item.title"
                 ></v-card-title>
-
                 <v-card-subtitle v-text="item.artist"></v-card-subtitle>
-
                 <v-card-actions>
-
                   <v-btn class="ml-2 mt-5" outlined rounded small>
                     Update
                   </v-btn>
                 </v-card-actions>
               </div>
-
               <v-avatar class="ma-3" size="125" tile>
                 <v-img :src="item.src" class="rounded-circle"></v-img>
               </v-avatar>
@@ -36,14 +27,8 @@
       </v-row>
     </v-container>
   </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 579e634c3e51567fa988b04a8c1ab8fdefe6d71c
 </template>
-
 <script>
-import SubHome from "./SubHome.vue";
 export default {
     data() {
         return {
@@ -77,8 +62,9 @@ export default {
             show: false,
         };
     },
-    components: { SubHome }
+
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>
