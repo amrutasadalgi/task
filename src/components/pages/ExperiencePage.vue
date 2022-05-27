@@ -73,13 +73,13 @@ import { validationMixin } from "vuelidate";
 import { required, maxLength } from "vuelidate/lib/validators";
 
 export default {
-    name: "ExperiencePage",
+  name: "ExperiencePage",
   mixins: [validationMixin],
   validations: {
     name: { required, maxLength: maxLength(30) },
     company: { required, maxLength: maxLength(30) },
     designation: { required, maxLength: maxLength(30) },
-    skills: { required, maxLength: maxLength(30) },
+    skills: { required },
     yop: { required, maxLength: maxLength(30) },
 
     checkbox: {
@@ -95,7 +95,17 @@ export default {
       designation: "",
       yop: "",
       skills: null,
-      items: ["Java", "Python", "javascript", "HTML","CSS","selenium","excel","reactJS","VueJS"],
+      items: [
+        "Java",
+        "Python",
+        "javascript",
+        "HTML",
+        "CSS",
+        "selenium",
+        "excel",
+        "reactJS",
+        "VueJS",
+      ],
       checkbox: false,
     };
   },
@@ -107,6 +117,20 @@ export default {
       !this.$v.checkbox.checked && errors.push("You must agree to continue!");
       return errors;
     },
+        skillsErrors() {
+      const errors = [];
+      if (!this.$v.skills.$dirty) return errors;
+      !this.$v.skills.required && errors.push("Item is required");
+      return errors;
+    },
+    nameErrors() {
+      const errors = [];
+      if (!this.$v.name.$dirty) return errors;
+      !this.$v.name.maxLength &&
+        errors.push("Name must be at most 30 characters long");
+      !this.$v.name.required && errors.push("Name is required.");
+      return errors;
+    },
 
     companyErrors() {
       const errors = [];
@@ -116,54 +140,39 @@ export default {
       !this.$v.company.required && errors.push("company is required.");
       return errors;
     },
-    degreeErrors() {
+    designationErrors() {
       const errors = [];
-      if (!this.$v.degree.$dirty) return errors;
-      !this.$v.degree.maxLength &&
-        errors.push("degree must be at most 30 characters long");
-      !this.$v.degree.required && errors.push("degree is required.");
+      if (!this.$v.yop.$dirty) return errors;
+      !this.$v.designation.maxLength &&
+        errors.push("designation must be at most 30 characters long");
+      !this.$v.designation.required && errors.push("designation is required.");
       return errors;
     },
-    institutionErrors() {
+    yopErrors() {
       const errors = [];
-      if (!this.$v.institution.$dirty) return errors;
-      !this.$v.institution.maxLength &&
-        errors.push("institution must be at most 30 characters long");
-      !this.$v.institution.required && errors.push("institution is required.");
+      if (!this.$v.yop.$dirty) return errors;
+      !this.$v.yop.maxLength &&
+        errors.push("year of passout must be at most 30 characters long");
+      !this.$v.yop.required && errors.push("year of passout is required.");
       return errors;
     },
-    passoutErrors() {
-      const errors = [];
-      if (!this.$v.passout.$dirty) return errors;
-      !this.$v.passout.maxLength &&
-        errors.push("passout must be at most 30 characters long");
-      !this.$v.passout.required && errors.push("passout is required.");
-      return errors;
-    },
-    gradeErrors() {
-      const errors = [];
-      if (!this.$v.grade.$dirty) return errors;
-      !this.$v.grade.maxLength &&
-        errors.push("grade must be at most 30 characters long");
-      !this.$v.grade.required && errors.push("grade is required.");
-      return errors;
-    },
+
 
   },
 
   methods: {
     submit() {
       this.$v.$touch();
-      router.push("/")
+      router.push("/");
     },
     clear() {
       this.$v.$reset();
       this.name = "";
-      this.degree = "";
-      this.institution = "",
-      this.passout = "",
-      this.grade = "",
-      this.checkbox = false;
+      this.company = "";
+      (this.designation = ""),
+        (this.yop = ""),
+        (this.skills = null),
+        (this.checkbox = false);
     },
     GoToHome() {
       router.push("/");
