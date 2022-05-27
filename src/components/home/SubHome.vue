@@ -14,7 +14,7 @@
         suscipit ut, tempore dolore cupiditate aliquam quod nostrum nesciunt
         itaque a perspiciatis impedit!
       </p>
-      <v-btn rounded height="60" width="300" color="transperent" class="text-weight-bold white--text" outlined>More Info</v-btn>
+      <v-btn rounded height="60" width="250" color="transperent" class="text-weight-bold white--text" outlined>More Info</v-btn>
     </v-container>
   </div>
 </template>

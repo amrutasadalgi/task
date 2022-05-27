@@ -3,7 +3,8 @@
     <div>
       <v-card>
         <v-app-bar absolute="true" color="transparent" elevation="0">
-         <v-img max-height="100" max-width="100" class="rounded-full" src="https://img.freepik.com/free-vector/family-care-foundation-logo-vector_23987-272.jpg?size=338&ext=jpg"></v-img>
+         <!-- <v-img max-height="150" max-width="150" class="ma-5" src=""></v-img> -->
+         <v-app-bar-title class="font-weight-bold display-1 white--text">Empo-Info </v-app-bar-title>
           <v-spacer></v-spacer>
           <v-dialog v-model="dialog">
             <template v-slot:activator="{ on, attrs }">
@@ -34,11 +35,11 @@
                     class="ma-5"
                     width="900"
                   >
-                    <form @submit.prevent="submit">
+                    <form @submit.prevent="submit" style="width: 500px;">
                       <validation-provider name="name">
                         <v-text-field
                           v-model="name"
-                          label="Enter Name"
+                          label="Enter Namee"
                           outlined
                           required
                           color="#1ed760"
