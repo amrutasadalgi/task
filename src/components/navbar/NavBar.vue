@@ -2,7 +2,7 @@
   <div>
     <div>
       <v-card>
-        <v-app-bar absolute="true" color="transparent" elevation="0">
+        <v-app-bar absolute color="transparent" elevation="0">
          <!-- <v-img max-height="150" max-width="150" class="ma-5" src=""></v-img> -->
          <v-app-bar-title class="font-weight-bold display-1 white--text">Empo-Info </v-app-bar-title>
           <v-spacer></v-spacer>
@@ -128,7 +128,7 @@
                 v-slot="{ invalid }"
                 class="ma-5"
               >
-                <form @submit.prevent="submit">
+                <form @submit.prevent="handlesubmit">
                   <v-container
                     class="d-flex flex-column align-center justify-center"
                   >
@@ -237,6 +237,8 @@
 </template>
 
 <script>
+import {auth} from "../../apis/FireBase.js"
+import {createUserWithEmailAndPassword,signInWithEmailAndPassword} from "firebase/auth"
 import { required, digits, email, max, regex } from "vee-validate/dist/rules";
 import {
   extend,
@@ -296,8 +298,26 @@ export default {
     pass:""
   }),
   methods: {
-    submit() {
+async   submit () {
       this.$refs.observer.validate();
+try{
+  await createUserWithEmailAndPassword(auth,this.email,this.password)
+  this.$vToastify.success("successfully signed up")
+}
+catch(err){
+  console.log(err)
+}
+    },
+    async   handlesubmit () {
+      this.$refs.observer.validate();
+try{
+  await signInWithEmailAndPassword(auth,this.mail,this.pass)
+ this.$vToastify.success("successfully signed in")
+}
+catch(err){
+  console.log(err)
+  this.$vToastify.error(err)
+}
     },
     clear() {
       this.password = "";
