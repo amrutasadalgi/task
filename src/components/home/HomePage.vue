@@ -5,15 +5,15 @@
 
   <div>
     <!-- bottom 4 cards -->
-    <v-card class="mx-13 my-16" elevation="0">
-      <v-row>
-        <v-card v-for="(item, i) in items" :key="i" class="mr-5">
-          <v-col class="d-flex">
-            <v-card :color="item.color" dark>
+    <v-card class="mx-8 my-16" elevation="0">
+      <v-row class="d-flex justify-center">
+        <v-card v-for="(item, i) in items" :key="i" class="mr-3" >
+          <v-col class="d-flex pa-0">
+            <v-card :color="item.color" dark height="180" width="315">
               <div class="d-flex justify-space-between">
                 <div>
                   <v-card-title
-                    class="text-h5"
+                    class="text-h6"
                     v-text="item.title"
                   ></v-card-title>
 
@@ -136,7 +136,7 @@ export default {
           color: "#1F7087",
           src: "https://thumbs.dreamstime.com/b/man-profile-cartoon-smiling-round-icon-vector-illustration-graphic-design-135443422.jpg",
           title: "Personal Info",
-          artist: "Personal info of People",
+          artist: "Personal info",
         },
         {
           color: "#1F7087",
