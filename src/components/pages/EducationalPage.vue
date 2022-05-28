@@ -73,7 +73,7 @@ import { validationMixin } from "vuelidate";
 import { required, maxLength } from "vuelidate/lib/validators";
 
 export default {
-    name: "EducationalPage",
+  name: "EducationalPage",
   mixins: [validationMixin],
   validations: {
     name: { required, maxLength: maxLength(30) },
@@ -147,22 +147,21 @@ export default {
       !this.$v.grade.required && errors.push("grade is required.");
       return errors;
     },
-
   },
 
   methods: {
     submit() {
       this.$v.$touch();
-      router.push("/")
+      router.push("/");
     },
     clear() {
       this.$v.$reset();
       this.name = "";
       this.degree = "";
-      this.institution = "",
-      this.passout = "",
-      this.grade = "",
-      this.checkbox = false;
+      (this.institution = ""),
+        (this.passout = ""),
+        (this.grade = ""),
+        (this.checkbox = false);
     },
     GoToHome() {
       router.push("/");
