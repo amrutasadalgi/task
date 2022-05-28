@@ -5,12 +5,12 @@
 
   <div>
     <!-- bottom 4 cards -->
-    <v-container>
-      <v-row dense>
-        <v-container v-for="(item, i) in items" :key="i">
-          <v-col cols="12">
+    <v-card class="mx-13 my-16" elevation="0">
+      <v-row>
+        <v-card v-for="(item, i) in items" :key="i" class="mr-5">
+          <v-col class="d-flex">
             <v-card :color="item.color" dark>
-              <div class="d-flex flex-no-wrap justify-space-between">
+              <div class="d-flex justify-space-between">
                 <div>
                   <v-card-title
                     class="text-h5"
@@ -67,8 +67,8 @@
                   </v-card-actions>
                 </div>
 
-                <v-avatar class="ma-3" size="125" tile>
-                  <v-img :src="item.src" class="rounded-circle"></v-img>
+                <v-avatar class="ma-3 rounded-circle" size="125"  tile>
+                  <v-img :src="item.src" class="rounded-circle" min-height="160" min-width="160"></v-img>
                 </v-avatar>
               </div>
             </v-card>
@@ -102,9 +102,9 @@
           >
             <component :is="TechnologiesPage" view-prop="value" />
           </router-view>
-        </v-container>
+        </v-card>
       </v-row>
-    </v-container>
+    </v-card>
   </div>
 
 
@@ -122,25 +122,25 @@ export default {
       items: [
         {
           color: "#1F7087",
-          src: "https://bit.ly/3yUuBHh",
+          src: "https://e7.pngegg.com/pngimages/503/795/png-clipart-case-study-student-research-learning-study-skills-student-people-public-relations-thumbnail.png",
           title: "Education",
           artist: "Education of People",
         },
         {
           color: "#1F7087",
-          src: "https://shiftworkplace.com/wp-content/uploads/2017/06/Experience-photo.jpg",
+          src: "https://thumbs.dreamstime.com/b/illustration-successful-businessman-employee-cartoon-glasses-falling-money-coin-above-illustration-vector-180887933.jpg",
           title: "Experience",
           artist: "Experience ",
         },
         {
           color: "#1F7087",
-          src: "https://cdn3.iconfinder.com/data/icons/flat-rounded-7/50/617-512.png",
+          src: "https://thumbs.dreamstime.com/b/man-profile-cartoon-smiling-round-icon-vector-illustration-graphic-design-135443422.jpg",
           title: "Personal Info",
           artist: "Personal info of People",
         },
         {
           color: "#1F7087",
-          src: "https://ps-attachments.s3.amazonaws.com/cc810a17-c903-405a-b914-be7622637dc2/ixTAUT5DNBKQzZaBAixIkA.jpg",
+          src: "https://images-na.ssl-images-amazon.com/images/I/61d94+SfKML.png",
           title: "Technologies",
           artist: "Technologies used",
         },

@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="justify-end d-flex"><v-btn @click="GoToHome"> X </v-btn></p>
-    <form>
+    <form  class="pa-4">
       <v-text-field
         v-model="name"
         :error-messages="nameErrors"
