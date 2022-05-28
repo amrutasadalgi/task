@@ -3,19 +3,30 @@
     <div>
       <v-card>
         <v-app-bar absolute color="transparent" elevation="0">
-         <!-- <v-img max-height="150" max-width="150" class="ma-5" src=""></v-img> -->
-         <v-app-bar-title class="font-weight-bold display-1 white--text">Empo-Info </v-app-bar-title>
+          <!-- <v-img max-height="150" max-width="150" class="ma-5" src=""></v-img> -->
+          <v-app-bar-title class="font-weight-bold display-1 white--text"
+            >Empo-Info
+          </v-app-bar-title>
           <v-spacer></v-spacer>
+          <v-btn
+                v-show="signUpStatus != 'SIGN-UP'"
+                elevation="0"
+                color="transparent"
+                class="white--text font-weight-bold"
+              >
+                <v-icon >mdi-account-circle</v-icon>
+              </v-btn>
           <v-dialog v-model="dialog">
             <template v-slot:activator="{ on, attrs }">
               <v-btn
+                v-show="signUpStatus == 'SIGN-UP'"
                 elevation="0"
                 v-bind="attrs"
                 v-on="on"
                 color="transparent"
                 class="white--text font-weight-bold"
               >
-                Sign-up
+                {{ signUpStatus }}
               </v-btn>
             </template>
             <template>
@@ -35,11 +46,11 @@
                     class="ma-5"
                     width="900"
                   >
-                    <form @submit.prevent="submit" style="width: 500px;">
+                    <form @submit.prevent="submit" style="width: 500px">
                       <validation-provider name="name">
                         <v-text-field
                           v-model="name"
-                          label="Enter Namee"
+                          label="Enter Name"
                           outlined
                           required
                           color="#1ed760"
@@ -93,7 +104,7 @@
                         ></v-text-field>
                       </validation-provider>
                       <v-btn class="mr-4" type="submit" :disabled="invalid">
-                        Sign In
+                        Sign up
                       </v-btn>
                       <v-btn @click="dialog = false"> close </v-btn>
                     </form>
@@ -102,16 +113,24 @@
               </div>
             </template>
           </v-dialog>
+          <v-btn v-show="LoginStatus != 'LOGIN' "
+                @click="logout"
+                elevation="0"
+                color="transparent"
+                class="white--text font-weight-bold"
+              >
+                {{ LoginStatus }}
+              </v-btn>
           <v-dialog v-model="box">
             <template v-slot:activator="{ on, attrs }">
-              <v-btn
+              <v-btn v-show="LoginStatus == 'LOGIN' "
                 elevation="0"
                 color="transparent"
                 v-bind="attrs"
                 v-on="on"
-                class="white--text font-weight-bold "
+                class="white--text font-weight-bold"
               >
-                Login
+                {{ LoginStatus }}
               </v-btn>
             </template>
             <v-container class="d-flex grey lighten-5 elevation-4">
@@ -174,7 +193,7 @@
               <v-btn
                 elevation="0"
                 color="transparent"
-                class="white--text font-weight-bold "
+                class="white--text font-weight-bold"
                 v-bind="attrs"
                 v-on="on"
               >
@@ -182,7 +201,7 @@
               </v-btn>
             </template>
             <v-list>
-              <v-list-item v-for="(item, index) in items" :key="index" >
+              <v-list-item v-for="(item, index) in items" :key="index">
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
               </v-list-item>
             </v-list>
@@ -237,8 +256,11 @@
 </template>
 
 <script>
-import {auth} from "../../apis/FireBase.js"
-import {createUserWithEmailAndPassword,signInWithEmailAndPassword} from "firebase/auth"
+import { auth } from "../../apis/FireBase.js";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { required, digits, email, max, regex } from "vee-validate/dist/rules";
 import {
   extend,
@@ -294,36 +316,43 @@ export default {
     password: "",
     email: "",
     number: "",
-    mail:"",
-    pass:""
+    mail: "",
+    pass: "",
+
+    signUpStatus: "SIGN-UP",
+    LoginStatus: "LOGIN",
   }),
   methods: {
-async   submit () {
+    async submit() {
       this.$refs.observer.validate();
-try{
-  await createUserWithEmailAndPassword(auth,this.email,this.password)
-  this.$vToastify.success("successfully signed up")
-}
-catch(err){
-  console.log(err)
-}
+      try {
+        await createUserWithEmailAndPassword(auth, this.email, this.password);
+        this.$vToastify.success("successfully signed up");
+      } catch (err) {
+        console.log(err);
+      }
     },
-    async   handlesubmit () {
+    async handlesubmit() {
       this.$refs.observer.validate();
-try{
-  await signInWithEmailAndPassword(auth,this.mail,this.pass)
- this.$vToastify.success("successfully signed in")
-}
-catch(err){
-  console.log(err)
-  this.$vToastify.error(err)
-}
+      try {
+        await signInWithEmailAndPassword(auth, this.mail, this.pass);
+        this.$vToastify.success("successfully signed in");
+        this.signUpStatus = this.name;
+        this.LoginStatus = "LOGOUT";
+      } catch (err) {
+        console.log(err);
+        this.$vToastify.error(err);
+      }
     },
     clear() {
       this.password = "";
       this.email = "";
       this.$refs.observer.reset();
     },
+    logout(){
+      this.signUpStatus = "SIGN-UP";
+      this.LoginStatus = "LOGIN"
+    }
   },
 
   watch: {
