@@ -169,7 +169,7 @@
                       class="log"
                     ></v-text-field>
                   </validation-provider>
-                  <validation-provider v-slot="{ errors }" name="Name">
+                  <validation-provider v-slot="{ errors }" name="password">
                     <v-text-field
                       v-model="pass"
                       :error-messages="errors"
