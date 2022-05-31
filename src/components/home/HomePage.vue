@@ -1,13 +1,9 @@
 <template>
-
-
-
-
   <div>
     <!-- bottom 4 cards -->
     <v-card class="mx-8 my-16" elevation="0">
       <v-row class="d-flex justify-center">
-        <v-card v-for="(item, i) in items" :key="i" class="mr-3" >
+        <v-card v-for="(item, i) in items" :key="i" class="mr-3">
           <v-col class="d-flex pa-0">
             <v-card :color="item.color" dark height="180" width="315">
               <div class="d-flex justify-space-between">
@@ -67,8 +63,13 @@
                   </v-card-actions>
                 </div>
 
-                <v-avatar class="ma-3 rounded-circle" size="125"  tile>
-                  <v-img :src="item.src" class="rounded-circle" min-height="160" min-width="160"></v-img>
+                <v-avatar class="ma-3 rounded-circle" size="125" tile>
+                  <v-img
+                    :src="item.src"
+                    class="rounded-circle"
+                    min-height="160"
+                    min-width="160"
+                  ></v-img>
                 </v-avatar>
               </div>
             </v-card>
@@ -79,7 +80,7 @@
             v-if="path == '/education'"
             v-show="i == 0"
           >
-            <component :is="EducationalPage" view-prop="value"/>
+            <component :is="EducationalPage" view-prop="value" />
           </router-view>
           <router-view
             v-slot="{ EducationalPage }"
@@ -106,14 +107,9 @@
       </v-row>
     </v-card>
   </div>
-
-
 </template>
 <script>
-
-
 import SubHome from "./SubHome.vue";
-
 
 export default {
   data() {
@@ -153,13 +149,9 @@ export default {
     changePath: function () {
       this.path = window.location.pathname;
     },
-
-
   },
   components: { SubHome },
-
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
