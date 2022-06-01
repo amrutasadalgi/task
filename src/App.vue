@@ -1,10 +1,7 @@
 <template>
   <v-app>
     <NavBar/>
-
     <SubHome/>
-
-
     <HomePage />
     <!-- <router-view></router-view> -->
   <button @click="clicked">Fire base data</button>
@@ -27,7 +24,8 @@ export default {
   components: {
     NavBar,
     SubHome,
-    HomePage
+    HomePage,
+    TeamUnity
 },
 
   data: () => ({

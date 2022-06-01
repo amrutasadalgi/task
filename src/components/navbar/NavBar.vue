@@ -3,7 +3,6 @@
     <div>
       <v-card>
         <v-app-bar absolute color="transparent" elevation="0">
-          <!-- <v-img max-height="150" max-width="150" class="ma-5" src=""></v-img> -->
           <v-app-bar-title class="font-weight-bold display-1 white--text"
             >Empo-Info
           </v-app-bar-title>
