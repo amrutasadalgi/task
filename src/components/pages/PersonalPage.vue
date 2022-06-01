@@ -114,6 +114,7 @@ export default {
       this.checkbox = false;
     },
     GoToHome() {
+      this.$emit('close3')
       router.push("/");
     },
   },

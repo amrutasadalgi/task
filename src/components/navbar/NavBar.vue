@@ -14,7 +14,7 @@
                 color="transparent"
                 class="white--text font-weight-bold"
               >
-                <v-icon >mdi-account-circle</v-icon>
+                <v-icon >mdi-account-circle</v-icon> 
               </v-btn>
           <v-dialog v-model="dialog">
             <template v-slot:activator="{ on, attrs }">

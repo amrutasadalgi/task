@@ -72,27 +72,19 @@ export default {
       !this.$v.checkbox.checked && errors.push("You must agree to continue!");
       return errors;
     },
-    selectErrors() {
+    languagesErrors() {
       const errors = [];
-      if (!this.$v.select.$dirty) return errors;
-      !this.$v.select.required && errors.push("Item is required");
+      if (!this.$v.languages.$dirty) return errors;
+      !this.$v.languages.required && errors.push("Item is required");
       return errors;
     },
-    nameErrors() {
+    frontEndErrors() {
       const errors = [];
-      if (!this.$v.name.$dirty) return errors;
-      !this.$v.name.maxLength &&
-        errors.push("Name must be at most 30 characters long");
-      !this.$v.name.required && errors.push("Name is required.");
+      if (!this.$v.frontEnd.$dirty) return errors;
+      !this.$v.frontEnd.required && errors.push("Item is required");
       return errors;
     },
-    emailErrors() {
-      const errors = [];
-      if (!this.$v.email.$dirty) return errors;
-      !this.$v.email.email && errors.push("Must be valid e-mail");
-      !this.$v.email.required && errors.push("E-mail is required");
-      return errors;
-    },
+    
   },
 
   methods: {
@@ -102,12 +94,12 @@ export default {
     },
     clear() {
       this.$v.$reset();
-      this.name = "";
-      this.email = "";
-      this.select = null;
+      this.languages = null;
+      this.frontEnd = null;
       this.checkbox = false;
     },
     GoToHome() {
+      this.$emit('close4')
       router.push("/");
     },
   },

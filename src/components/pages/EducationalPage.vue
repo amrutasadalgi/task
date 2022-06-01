@@ -71,9 +71,12 @@
 import router from "@/router/CoustomRouter";
 import { validationMixin } from "vuelidate";
 import { required, maxLength } from "vuelidate/lib/validators";
+import { db } from "../../apis/FireBase.js";
+import { doc, setDoc } from "firebase/firestore";
 
 export default {
   name: "EducationalPage",
+  props: ["dialog1"],
   mixins: [validationMixin],
   validations: {
     name: { required, maxLength: maxLength(30) },
@@ -150,9 +153,17 @@ export default {
   },
 
   methods: {
-    submit() {
-      this.$v.$touch();
-      router.push("/");
+    async submit() {
+      this.$v.$touch(); //vuelidate code
+      let payload = {
+        name: this.name,
+        degree: this.degree,
+        institution: this.institution,
+        passout: this.passout,
+        grade: this.grade,
+      };
+      await setDoc(doc(db, "emp", ["education"]), payload);
+      router.push("/"); //for router
     },
     clear() {
       this.$v.$reset();
@@ -164,6 +175,7 @@ export default {
         (this.checkbox = false);
     },
     GoToHome() {
+      this.$emit("close1");
       router.push("/");
     },
   },
